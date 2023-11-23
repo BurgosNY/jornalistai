@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJD - JornalistAI</title>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>JornalistAI</h1>
+    </header>    
+    <div>
+        <form> 
+            <textarea class="textarea textarea-info" placeholder="Faça uma pergunta" name="pergunta">
+            </textarea>
+            <button class="button btn" hx-post="{{url_for('ask_gpt')}}" hx-target="#resultado">Botão</button>
+        </form>
+        
+    </div>
+
+    <div id="resultado">
+        <p>Resultado</p>
+    </div>
+</body>
+
+</html>

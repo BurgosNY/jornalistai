@@ -1,0 +1,34 @@
+<div>
+    <audio id="dynamicAudio" src="{{ url_for('static', filename='audio/entrevista.mp3') }}"></audio>
+    <button class="btn btn-success" onclick="playAudio()">Ouvir</button>
+    <button class="btn btn-warning" onclick="pauseAudio()">Pausar</button>
+</div>
+
+<script>
+    var start = "{{ start }}";
+    var end = "{{ end }}";
+    var audio = document.getElementById('dynamicAudio');
+
+    function playAudio() {
+        if (audio) {
+            audio.currentTime = start;
+            audio.play();
+            setupEndEvent();
+        }
+    }
+
+    function pauseAudio() {
+        if (audio) {
+            audio.pause();
+        }
+    }
+
+    function setupEndEvent() {
+        audio.ontimeupdate = function() {
+            if (audio.currentTime >= end) {
+                audio.pause();
+            }
+        };
+    }
+</script>
+

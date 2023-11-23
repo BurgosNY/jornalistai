@@ -1,0 +1,6 @@
+pydub
+flask
+openai
+jinja-partials
+gunicorn
+python-dotenv
