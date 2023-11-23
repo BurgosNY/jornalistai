@@ -12,20 +12,26 @@
 </head>
 
 <body>
-    <header>
-        <h1>JornalistAI</h1>
-    </header>    
-    <div>
-        <form> 
-            <textarea class="textarea textarea-info" placeholder="Faça uma pergunta" name="pergunta">
-            </textarea>
-            <button class="button btn" hx-post="{{url_for('ask_gpt')}}" hx-target="#resultado">Botão</button>
-        </form>
-        
-    </div>
-
-    <div id="resultado">
-        <p>Resultado</p>
+    <div class="flex justify-center items-center" style="height: 100vh;">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div>
+                <span class="text-4xl text-blue-700">JornalistAI</span>
+                <p>Um experimento de <span class="font-bold font-serif">jornalismo de conversa</span> da turma do Master em Jornalismo de Dados do Insper</p>
+            </div>
+            <div style="width: 300px;" class="py-10">
+                <span>
+                    Você entrevistou o professor de jornalismo de dados do Insper, <span class="font-bold">Pedro Burgos</span>, sobre inteligência artificial. E você pensou: ao invés de fazer um texto com as principais aspas (que preguiça!), que tal deixar o público escolher o que perguntar?
+                </span>
+                <form>
+                    <div class="py-2">
+                    <textarea class="textarea textarea-info" placeholder="Faça uma pergunta" name="pergunta" style="width: 280px; height: 300px;"></textarea>
+                </div>
+                    <button class="button btn" hx-post="{{url_for('ask_gpt')}}" hx-target="#resultado">Perguntar</button>
+                </form>
+            </div>
+            <div id="resultado">
+            </div>
+        </div>
     </div>
 </body>
 
